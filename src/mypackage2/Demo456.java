@@ -10,20 +10,39 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class Demo456 {
+	ExtentReports e = new ExtentReports("./ExtentReport/ExtentReport.html");
 	@Test
-	public void testA(){
-		ExtentReports e = new ExtentReports("./ExtentReport.html");
+	public void testA(){	
 		ExtentTest v = e.startTest("hi");
-		v.log(LogStatus.PASS, "hi");
-		e.endTest(v);
-		e.flush();
+		
 		
 		WebDriver driver = new FirefoxDriver();
 		driver.get("https://www.google.co.in/");
 		Reporter.log("test123", true);
 		Reporter.log("testing", true);
 		driver.close();
+		v.log(LogStatus.PASS, "hi");
+		e.endTest(v);
+		e.flush();
+
 		
 	}
+	
+	
+	@Test
+	public void testB(){	
 
+		ExtentTest v = e.startTest("hi");
+
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.google.co.in/");
+		Reporter.log("test123", true);
+		Reporter.log("testing", true);
+		driver.close();
+		v.log(LogStatus.FAIL, "hi");
+		e.endTest(v);
+		e.flush();
+		
+		
+	}
 }
