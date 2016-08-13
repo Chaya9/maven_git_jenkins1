@@ -23,7 +23,7 @@ public class Demo456 {
 		driver.close();
 		v.log(LogStatus.PASS, "hi");
 		e.endTest(v);
-		e.flush();
+		//e.flush();
 
 		
 	}
